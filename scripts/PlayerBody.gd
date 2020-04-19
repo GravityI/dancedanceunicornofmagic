@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
-var moveSpeed = 50000
+var moveSpeed = 5000
 var immune = false
-var health = 5
 
 onready var stateMachine = $"../StateMachine"
 onready var gun = $"../gun"
@@ -13,16 +12,15 @@ func _ready():
 func _process(delta):
 	var motion = stateMachine.motion
 	move_and_slide(motion*moveSpeed*delta)
-	
-func loseHealth():
-	if !immune:
-		health -=1
-		immune = true
-		yield(get_tree().create_timer(1), "timeout")
-		immune = false
+	if !self in $"../Unicorn/Area2D".get_overlapping_bodies():
+		var unicornPos = $"../Unicorn".global_position
+		global_position.x = clamp(global_position.x, unicornPos.x - 480, unicornPos.x + 480)
+		global_position.y = clamp(global_position.y, unicornPos.y - 280, unicornPos.y + 280)
 
 func getRandomWeapon():
 	var randGun = randi() % 2 + 1
 	gun.currentGun = randGun
 	if randGun == gun.guntypes.RIFLE: gun.ammo = 30
 	else: gun.ammo = 30
+
+func set_carrying(value): stateMachine.carrying = value
