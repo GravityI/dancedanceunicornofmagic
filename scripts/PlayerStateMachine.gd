@@ -60,6 +60,6 @@ func _get_transition(delta):
 func _enter_state(new_state, old_state):
 	match new_state:
 		states.IDLE:
-			set_animation("idle")
+			sprite.animation = "idle"
 		states.WALK:
-			set_animation("walk")
+			sprite.animation = "walk"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Robbero_-_Soul_sister.ogg-191a8584d60cf72ba8f268bfe0566df0.oggstr"
+
+[deps]
+
+source_file="res://audio/Robbero_-_Soul_sister.ogg"
+dest_files=[ "res://.import/Robbero_-_Soul_sister.ogg-191a8584d60cf72ba8f268bfe0566df0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

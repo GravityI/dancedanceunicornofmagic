@@ -1,19 +1,71 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/game over.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Oswald/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="Game Over" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Score" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_right = 150.0
+margin_bottom = 149.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.866667, 0.211765, 0.721569, 1 )
+text = "100000"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="lolol" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.688559
+anchor_right = 0.5
+anchor_bottom = 0.745226
+margin_left = -82.5
+margin_top = -44.0
+margin_right = 82.5
+margin_bottom = 44.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="retry" type="Button" parent="VBoxContainer"]
+margin_right = 165.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 6 )
+text = "Retry"
+
+[node name="menu" type="Button" parent="VBoxContainer"]
+margin_top = 86.0
+margin_right = 165.0
+margin_bottom = 122.0
+custom_fonts/font = SubResource( 6 )
+text = "Return to Main Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -33,6 +33,13 @@ globals="*res://scripts/globals.gd"
 gdscript/warnings/unused_argument=false
 gdscript/warnings/return_value_discarded=false
 
+[display]
+
+mouse_cursor/custom_image="res://sprites/crosshair50x50.png"
+mouse_cursor/custom_image_hotspot=Vector2( 25, 25 )
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [input]
 
 ui_left={
@@ -77,6 +84,8 @@ shoot={
 [rendering]
 
 quality/filters/anisotropic_filter_level=16
+quality/filters/use_nearest_mipmap_filter=true
 quality/subsurface_scattering/quality=2
 quality/filters/msaa=4
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false

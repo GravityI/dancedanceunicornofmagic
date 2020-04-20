@@ -10,7 +10,7 @@ var canShoot = true
 var shooting = false
 
 onready var playerBody = $"../PlayerBody"
-onready var spawnPos = $"spawnPos"
+onready var spawnPos = $"pivot/spawnPos"
 onready var stateMachine = $"../StateMachine"
 onready var unicorn = $"../Unicorn"
 
@@ -27,14 +27,13 @@ func _process(delta):
 			shooting = false
 			
 		if shooting and canShoot:
-			print(ammo)
 			spawnBullet()
 			if currentGun == guntypes.PISTOL:
 				$"cooldown".wait_time = 1
 			elif currentGun == guntypes.RIFLE:
 				$"cooldown".wait_time = 0.1
 			else:
-				$"cooldown".wait_time = 1
+				$"cooldown".wait_time = 0.5
 				spawnBullet(45)
 				spawnBullet(-45)
 				$"cooldown".wait_time = $"cooldown".wait_time
@@ -44,20 +43,22 @@ func _process(delta):
 			currentGun = guntypes.PISTOL
 		
 		if currentGun == guntypes.PISTOL:
-			$"Sprite".animation = "pistol"
+			$"pivot/Sprite".animation = "pistol"
+			$"pivot/spawnPos".position.x = 50
 		elif currentGun == guntypes.RIFLE:
-			$"Sprite".animation = "rifle"
+			$"pivot/Sprite".animation = "rifle"
+			$"pivot/spawnPos".position.x = 80
 		else:
-			$"Sprite".animation = "shotgun"
+			$"pivot/Sprite".animation = "shotgun"
+			$"pivot/spawnPos".position.x = 75
 		
-		if playerBody in unicorn.get_node("Area2D").get_overlapping_bodies():
+		if playerBody in unicorn.get_node("Area2D").get_overlapping_bodies() and stateMachine.carrying:
 			hide()
 		else:
 			show()
 	else:
 		hide()
 		
-
 func spawnBullet(angle = 0):
 	if currentGun != guntypes.PISTOL: ammo -= 1
 	var newBullet = bullet.instance()

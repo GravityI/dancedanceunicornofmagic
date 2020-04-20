@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AlexBeroza_-_Drive.ogg-20ef4d55fb007f7169b9f8fdb9d749fb.oggstr"
+
+[deps]
+
+source_file="res://audio/AlexBeroza_-_Drive.ogg"
+dest_files=[ "res://.import/AlexBeroza_-_Drive.ogg-20ef4d55fb007f7169b9f8fdb9d749fb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
